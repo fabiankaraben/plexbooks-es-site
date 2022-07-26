@@ -1,2 +1,2 @@
-# plexbooks-es-site
-PlexBooks Spanish website project.
+# plexbooks-site
+PlexBooks website project.

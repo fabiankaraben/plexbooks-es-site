@@ -1,0 +1,99 @@
+---
+title: 'Formateadores %.2f y %d en Python'
+date: '2022-06-20'
+lastmod: '2022-06-20'
+tags: ['python']
+draft: false
+summary: 'En Python, existen varios métodos para formatear tipos de datos. El formateador `%f` se usa específicamente para formatear valores flotantes.'
+images: ['/static/images/blog/formateadores-f-y-d.jpg']
+authors: ['fabiankaraben']
+---
+
+![tailwind-nextjs-banner](/../static/images/blog/formateadores-f-y-d.jpg)
+
+En Python, existen varios métodos para formatear tipos de datos. 
+
+El formateador `%f` se usa específicamente para formatear valores flotantes (números con decimales). 
+
+Podemos usar el formateador `%f` para especificar la cantidad de números decimales que se devolverán cuando se redondee un número de punto flotante.
+
+## Cómo usar el formateador %f en Python
+
+En esta sección, verás algunos ejemplos sobre cómo usar el formateador `%f` y los diversos parámetros con los que se puede usar para 
+obtener resultados variables. 
+
+Aquí está el primer ejemplo:
+
+```python
+floatNumber = 1.9876
+
+print("%f" % floatNumber)
+# 1.987600
+```
+
+El uso de `%f` en el ejemplo anterior agregó dos ceros al número. Pero no hay nada demasiado especial en eso. 
+Veremos qué más podemos hacer para modificar el valor resultante pronto. 
+
+Ten en cuenta que el formateador `%f` debe anidarse entre comillas y debe estar separado del número flotante 
+al que estás formateando mediante un operador de módulo (%): `"%f" % floatNumber`. 
+
+Echemos un vistazo a otro ejemplo.
+
+```python
+floatNumber = 1.9876
+
+print("%.1f" % floatNumber)
+# 2.0
+```
+
+En el código anterior, agregamos `.1` entre `%` y `f` en el operador `%f`. 
+Esto significa que queremos que el número se redondee a un decimal. 
+
+Ten en cuenta que obtendrás un resultado similar al del primer ejemplo si omites el símbolo de punto (`.`) 
+que viene antes del dígito que pasamos entre `%` y `f`. 
+
+El valor resultante en nuestro ejemplo es `2,0`, que se devolvió cuando `1,9876` se redondeó a un decimal. 
+
+Usemos `%.2f` y veamos qué sucede.
+
+```python
+floatNumber = 1.9876
+
+print("%.2f" % floatNumber)
+# 1.99
+```
+
+Como era de esperar, el número de punto flotante (`1,9876`) se redondeó a dos decimales: `1,99`. 
+Entonces `%.2f` significa redondear a dos decimales. 
+
+Puedes jugar con el código para ver qué sucede a medida que cambia el número en el formateador.
+
+## Cómo usar el formateador %d en Python
+
+Otro método de formateo que podemos usar con números de punto flotante en Python es el formateador `%d`. 
+Esto devuelve el número entero en un número de coma flotante. 
+
+Aquí hay un ejemplo:
+
+```python
+floatNumber = 1.9876
+
+print("%d" % floatNumber)
+# 1
+```
+
+En el ejemplo anterior, creamos un número de punto flotante: `floatNumber = 1.9876`. 
+
+Cuando se formateó la variable `floatNumber` con `%d`, solo se devolvió `1`. 
+
+El formateador `%d` ignora los números decimales y devuelve solo el número entero.
+
+## Resumen
+
+En este artículo, hablamos sobre el formateador `%f` en Python. 
+Lo usamos para formatear números de coma flotante. 
+
+Según los parámetros proporcionados, el formateador `%f` redondea un valor flotante al 
+lugar decimal más cercano proporcionado. 
+
+También hablamos sobre el formateador `%d` que devuelve solo un número entero a partir de un número de coma flotante.

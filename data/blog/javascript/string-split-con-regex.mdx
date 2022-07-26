@@ -1,0 +1,73 @@
+---
+title: 'JavaScript String.Split() Ejemplo con RegEx'
+date: '2022-06-21'
+lastmod: '2022-06-21'
+tags: ['javascript', 'split', 'string', 'regex']
+draft: false
+summary: 'Veamos cómo utilizar la función split y RegEx para dividir cadenas de texto.'
+images: ['/static/images/blog/string-split-con-regex.jpg']
+authors: ['fabiankaraben']
+---
+
+![tailwind-nextjs-banner](/../static/images/blog/string-split-con-regex.jpg)
+
+
+En JavaScript, usas RegEx para hacer coincidir patrones en caracteres. Combinar esto con el método de 
+cadena `.split()` te brinda más poderes de división (splitting).
+
+El constructor de *string* tiene muchos métodos útiles, uno de los cuales es el método `split()`.
+Utiliza este método para dividir una cadena en una matriz de subcadenas mediante un punto de interrupción.
+
+Así es como se usa a menudo:
+
+```javascript
+const string = "¿Como va todo?"
+
+const breakpoint = " "
+
+const splitted = string.split(breakpoint);
+
+// [ '¿Como', 'va', 'todo?' ]
+```
+
+Usando un espacio (" ") como punto de interrupción, el método `split` divide la cadena en esos puntos de interrupción.
+
+El punto de interrupción aquí es un carácter fijo. ¿Qué sucede si quieres dividir según un patrón? 
+¿Como un número-carácter o un símbolo-espacio? 
+Luego puedes usar el método `split` con expresiones regulares para lograr esto.
+
+## Cómo usar RegEx con .split en JavaScript
+
+El método `split` acepta un argumento: un punto de interrupción. 
+Este punto de interrupción determina los puntos en los que debe ocurrir la división. 
+Este punto de interrupción puede ser una cadena o un patrón de expresión regular. 
+
+Aquí hay un ejemplo usando un patrón regex:
+
+```javascript
+const string = "How is $everything g$oing?"
+
+const breakpoint = /\$e|\$o/
+
+const splitted = string.split(breakpoint)
+
+// [ 'How is ', 'verything g', 'ing?' ]
+```
+
+El patrón de expresiones regulares coincide con el signo de dólar seguido de la letra "e" (`$e`) o 
+el signo de dólar seguido de la letra o (`$o`). 
+
+El método `split` utiliza caracteres que coinciden con este patrón como punto de interrupción y, 
+como puedes ver, "$e" en "$everything" y "$o" en "g$oing" sirvieron como puntos de interrupción 
+para dividir la cadena en subcadenas. 
+
+No necesitas aplicar el indicador global `g` en la expresión regular, ya que el método de división ya 
+busca todas las ocurrencias del patrón de expresión regular como punto de interrupción.
+
+## Para finalizar
+
+No solo puedes usar cadenas literales para dividir cadenas en una matriz con el método `split`. 
+Puedes usar expresiones regulares como puntos de interrupción que coincidan con más caracteres para 
+dividir una cadena. 
+
+El método `replace` en cadenas también admite patrones de expresiones regulares.
