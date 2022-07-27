@@ -56,7 +56,7 @@ las mismas instrucciones.
 
 Navega a esta URL en el navegador:
 
-https://github.com/fabiankaraben/repo-de-prueba
+https://github.com/fabiankaraben/repo-de-practica
 
 Verás una pantalla como la siguiente:
 
@@ -102,4 +102,110 @@ Deberías ver algo muy similar a esto:
 ```
 git clone git@github.com:tu-usuario-github/repo-de-practica.git
 ```
+
+Analicemos cada parte de este comando:
+
+- `git` es el nombre de la herramienta de línea de comandos de Git. Cada interacción que tengas con Git en la línea de comandos
+comenzará con el comando `git` seguido del subcomando que necesites ejecutar.
+- `clone` es el nombre del subcomando que necesitas ejecutar en este paso. `clone` que dice a git que copie el repositorio
+remoto especificado a tu máquina local.
+- `git@github.com:<tu-usuario-en-github>/repo-de-practica.git` es la URL completa del repositorio remoto que se va a clonar. 
+Esta incluye una referencia de acceso a GitHub, tu nombre de usuario en GitHub y el nombre del repositorio.
+
+Ahora presiona **Enter** y ejecuta el comando. Git te mostrará algo de información sobre el estado y finalización del proceso:
+
+```
+Clonando en 'repo-de-practica'...
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Recibiendo objetos: 100% (4/4), listo.
+```
+
+Los detalles de esta salida no son importantes en este momento pero básicamente significa que la clonación se realizó con éxito y
+ahora tienes el repositorio en tu espacio de trabajo local.
+
+El siguiente paso es navegar dentro del directorio del repositorio ejecutando el siguiente comando:
+
+```
+cd repo-de-practica
+```
+
+> En este punto puedes abrir este directorio en tu editor de código favorito, por ejemplo Visual Studio Code. Aunque Git sirve para
+gestionar las versiones de cualquier tipo de contenido, no solamente código de programación.
+
+Ahora que tienes el repositorio clonado en tu máquina local, el siguiente paso es crear un espacio de trabajo separado, o rama,
+o **branch**, donde puedas cambiar el contenido de cualquier archivo sin miedo a estropear el contenido original del repositorio.
+
+## Crear una nueva rama en Git
+
+Una rama (*branch*) es conceptualmente una copia del contenido original del repositorio. De esta forma puedes trabajar en una rama
+sin afectar el contenido orginal del repositorio hasta que estés listo para unir los cambios con ese contenido original.
+
+Si alguna vez copiaste un archivo antes de comenzar a editarlo para preservar el original intacto, entiendes el concepto.
+
+En la línea de comandos ejecuta lo siguiente para crear una nueva rama:
+
+```
+git branch mi-nueva-rama
+```
+
+Analicemos las partes de este comando:
+
+- `git` es el nombre de la herramienta de línea de comandos de Git.
+- `branch` es el nombre del subcomando de Git para trabajar con ramas, si no se especifica más información adicional que el nombre 
+de la rama, su comportamiento es crear una nueva rama.
+- `mi-nueva-rama` es el nombre de la rama que se va a crear.
+
+El nombre de la rama suele ser descriptivo en relación a las ediciones que se van a realizar en el contenido dentro de esa rama.
+
+Puedes ver las ramas creadas con el siguiente comando:
+
+```
+git branch
+```
+
+Esto se ve muy similar al comando anterior, pero en este caso no se especifica un nombre de rama.
+
+Git te mostrará lo siguiente:
+
+```
+* main
+  mi-nueva-rama
+```
+
+`main` es la copia original del repositorio, mientras que `mi-nueva-rama` es la rama que acabas de crear. El asterisco `*` en qué
+rama estás trabajando actualmente. Ahora mismo estás en la rama `main` pero esto no es lo que queremos, necesitamos cambiar a la
+nueva rama.
+
+Para cambiar a la rama `mi-nueva-rama` ejecuta el siguiente comando:
+
+```
+git checkout mi-nueva-rama
+```
+
+> Este comando se ve algo raro, tal vez esperabas ver algo como *git change-branch* pero sucede que Git ve esto en términos de *checkout*,
+es decir, como marcar la salida, proceso terminado y entrar a una nueva etapa.
+
+Git te responderá con algo similar a:
+
+```
+Cambiado a rama 'mi-nueva-rama'
+```
+
+Ahora incluso puedes confirmar que sí se realizó el cambio de rema volviendo a ejecutar:
+
+```
+git branch
+```
+
+y verás esta salida:
+
+```
+  main
+* mi-nueva-rama
+```
+
+Ahora el asterisco indica que la rama actual de trabajo es `mi-nueva-rama`.
 
