@@ -1,10 +1,105 @@
 ---
-title: 'Introducción a Git'
+title: 'Una gran introducción a Git'
 date: '2022-07-19'
 lastmod: '2022-07-19'
 draft: false
-summary: 'Introducción a Git.'
+summary: 'En esta lección te introducirás en los conceptos básicos que son centrales para Git, y en cómo Git se diferencia de otros sistemas de control 
+de versión.'
 authors: ['fabiankaraben']
 ---
 
-...
+Esta sección da a los recién llegados una introducción a Git intentando que lo sientan familiar en el resto del libro.
+
+Te introducirás en los conceptos básicos que son centrales para Git, cómo Git se diferencia de otros sistemas de control 
+de versión, y las operaciones básicas de Git tales como `commit`, `merge` y `pull`.
+
+Puede ser que encuentres en esta sección cosas que no entiendas sobre Git, incluso si llevas un largo tiempo utilizándolo.
+
+## Comenzando
+
+Puede ser desafiante comenzar a trabajar con Git en la línea de comandos si nunca antes has trabajado con comandos.
+
+Ya que vas a estar trabajando con comandos de Git durante la mayor parte de este libro, en esta sección te daré una 
+introducción sobre cómo hacer esto.
+
+Existe un flujo de trabajo bastante común que sirve para explicar la mayoría de las interacciones que tendrás con Git:
+
+- Crear un *fork* de un repositorio remoto existente.
+- Copiar (o clonar) un repositorio remoto en tu computadora.
+- Crear un área de trabajo separada en el repositorio, donde puedas trabajar sin afectar a nadie.
+- Marcar los cambios para ser guardados en la copia local del repositorio.
+- Guardar los cambios en tu copia local del repositorio.
+- Sincronizar esos cambios locales con el repositorio remoto.
+- Opcionalmente, notificar al dueño del repositorio que tus cambios están listos para ser revisados.
+
+Este capítulo te llevará a través de todos los pasos mencionados en la lista anterior para ayudarte a familiarizarte con
+lo básico del trabajo con Git en la línea de comandos.
+
+A pesar de que este capítulo no explicará cada paso en detalle, te dará suficiente información para sentirte familiarizado
+con los repositorios de Git y flujo de trabajo básico de Git para entender mejor los capítulos siguientes.
+
+## ¿Qué son los repositorios remotos?
+
+Un repositorio remoto es simplemente una colección de todos los archivos de un proyecto, alojadas en algún otro lugar que no
+es tu máquina local. Estos podrían ser alojados internamente en tu red, pero lo más usual es alojarlos en servicios cloud 
+como GitHub o GitLab.
+
+Tener centralizado un repositorio remoto hace que sea fácil compartir y contribuir en un proyecto. En lugar de enviar los 
+archivos a las personas interesadas, simplemente colocas esos archivos en el repositorio remoto para luego obtenerlos y 
+ejecutarlos lo más rápido posible.
+
+El primer paso es crear tu propia copia personal online, o **fork**, del repositorio remoto. Esto te da un espacio online donde
+trabajar y seguir las instrucciones de este libro sin afectar a ninguna de las demás personas leyendo este libro y siguiendo 
+las mismas instrucciones.
+
+## Hacer fork a un repositorio remoto
+
+Navega a esta URL en el navegador:
+
+https://github.com/fabiankaraben/repo-de-prueba
+
+Verás una pantalla como la siguiente:
+
+![Primera vista de un repositorio remoto en GitHub](/../static/images/git-book/plexbooks-git-image-01.jpg)
+
+Esta es la página principal en GitHub para el proyecto que estarás utilizando a lo largo de este libro.
+Cubriremos todos los detalles de GitHub más adelante.
+
+Asegúrate de estar conectado con tu propia cuenta de usuario en GitHub, entonces haz clic en el botón **Fork**
+en la sección superior derecha de la página.
+
+Cuando GitHub finalice de crear el fork del repositorio, verás una pantalla que se parece mucho al repositorio original,
+con la excepción de que ahora estás trabajando en una ubicación diferente, y eso es justo lo que necesitas.
+
+Esta es una réplica exacta del repositorio original, con la excepción de esta copia existe en tu propia cuenta de usuario
+de GitHub. Esto quiere decir que puedes hacer lo que quieras con este repositorio, incluso eliminarlo, sin afectar al
+repositorio original.
+
+Para comenzar a trabajar ahora necesitas *clonar* este repositorio a tu máquina local. Para hacer esto, necesitas la URL de
+este repositorio. Esto es muy fácil de conseguir, simplemente haz clic en el botón **Code** en la página y luego haz clic en
+el pequeño icono de *copiar a la papelera*, como se muestra en la imagen:
+
+![Copiar la URL de un repositorio remoto en GitHub](/../static/images/git-book/plexbooks-git-image-02.jpg)
+
+Ahora tienes la URL del repositorio copiada en tu portapapeles.
+
+Terminamos de trabajar con esta página por ahora, estamos listos para comenzar a trabajar con Git en la línea de comandos.
+
+Abre la Terminal, PowerShell o la consola de tu sistema y estarás listo para continuar.
+
+## Clonar un repositorio desde GitHub
+
+En la consola de comandos, tipea el siguiente comando sin presionar **ENTER**:
+
+```
+git clone
+```
+
+Luego de esto solo ingresa un espacio en blanco y luego pega la URL que tienes en el portapapeles.
+
+Deberías ver algo muy similar a esto:
+
+```
+git clone git@github.com:tu-usuario-github/repo-de-practica.git
+```
+
